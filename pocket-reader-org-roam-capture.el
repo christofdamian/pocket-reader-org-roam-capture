@@ -39,7 +39,7 @@ Id: ${item_id}
 
 ${excerpt}
 " :unnarrowed t))
-  "Capture template for pocket-reader to org-roam capture
+  "Capture template for pocket-reader to org-roam capture.
 
 The bound variables are mapping to pocket-reader values like this:
 
@@ -48,11 +48,11 @@ slug: resolved_title
 url: resolved_url
 item_id: item_id
 excerpt: excerpt
-tags: tags (joined with spaces and quoted)
-")
+tags: tags (joined with spaces and quoted)")
 
 ;;;; Functions
 (defun pocket-reader-org-roam-capture ()
+  "Create an org-roam capture for all marked or current pocket reader items."
   (interactive)
   (pocket-reader--at-marked-or-current-items
     (when-let (
