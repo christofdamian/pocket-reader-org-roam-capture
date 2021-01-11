@@ -3,7 +3,10 @@
 ;; Copyright (C) 2021  Christof Damian
 
 ;; Author: Christof Damian <christof@damian.net>
+;; URL: https://github.com/christofdamian/pocket-reader-org-roam-capture
 ;; Keywords: extensions, tools
+;; Package-Requires: ((emacs "25.1"))
+;; Version: 0.1.0
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -46,8 +49,7 @@ url: resolved_url
 item_id: item_id
 excerpt: excerpt
 tags: tags (joined with spaces and quoted)
-"
-  )
+")
 
 ;;;; Functions
 (defun pocket-reader-org-roam-capture ()
@@ -59,8 +61,7 @@ tags: tags (joined with spaces and quoted)
                (item_id (pocket-reader--get-property 'item_id))
                (time_added (pocket-reader--get-property 'time_added))
                (excerpt (pocket-reader--get-property 'excerpt))
-	       (tags (combine-and-quote-strings (pocket-reader--get-property 'tags)))
- 	       )
+	       (tags (combine-and-quote-strings (pocket-reader--get-property 'tags))))
       (let (
             (org-roam-capture-templates pocket-reader-org-roam-capture-templates)
             (org-roam-capture--info `((title . ,resolved_title)
@@ -68,8 +69,7 @@ tags: tags (joined with spaces and quoted)
                                       (url . ,resolved_url)
                                       (item_id . ,item_id)
                                       (excerpt . ,excerpt)
-				      (tags . ,tags)
-                                      ))
+				      (tags . ,tags)))
             (org-roam-capture--context 'title))
 	(setq org-roam-capture-additional-template-props (list :finalize 'find-file))
 	(org-roam-capture--capture)))))
