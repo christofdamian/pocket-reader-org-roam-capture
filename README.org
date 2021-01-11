@@ -1,0 +1,16 @@
+* pocket-reader-org-roam-capture
+
+This is a simple function that converts pocket-reader items to org-roam files.
+
+Once installed call the function =pocket-reader-org-roam-capture= and it will
+create one file for the current item or all marked items.
+
+** Development
+
+Bug reports, feature requests, suggestions
+https://github.com/christofdamian/pocket-reader-org-roam-capture
+
+
+** License
+
+GPLv3
