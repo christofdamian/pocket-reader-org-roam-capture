@@ -5,7 +5,7 @@
 ;; Author: Christof Damian <christof@damian.net>
 ;; URL: https://github.com/christofdamian/pocket-reader-org-roam-capture
 ;; Keywords: extensions, tools
-;; Package-Requires: ((emacs "25.1"))
+;; Package-Requires: ((emacs "25.1") (pocket-reader "0.2.1") (org-roam "1.2.3"))
 ;; Version: 0.1.0
 
 ;; This program is free software; you can redistribute it and/or modify
