@@ -30,26 +30,6 @@
 (require 'pocket-reader)
 (require 'org-roam)
 
-;; Declarations
-(defcustom pocket-reader-org-roam-capture-templates '(("d" "default" plain #'org-roam--capture-get-point "%?" :file-name "pocket/${item_id}-${slug}" :head "#+TITLE: ${title}
-#+roamtags: ${tags}
-
-URL: ${url}
-Id: ${item_id}
-
-${excerpt}
-" :unnarrowed t))
-  "Capture template for `pocket-reader' to `org-roam' capture.
-
-The bound variables are mapping to `pocket-reader' values like this:
-
-title: resolved_title
-slug: resolved_title
-url: resolved_url
-item_id: item_id
-excerpt: excerpt
-tags: tags (joined with spaces and quoted)")
-
 ;;;; Functions
 (defun pocket-reader-org-roam-capture ()
   "Create an `org-roam' capture for all marked or current pocket reader items."
@@ -63,7 +43,14 @@ tags: tags (joined with spaces and quoted)")
                (excerpt (pocket-reader--get-property 'excerpt))
 	       (tags (combine-and-quote-strings (pocket-reader--get-property 'tags))))
       (let (
-            (org-roam-capture-templates pocket-reader-org-roam-capture-templates)
+            (org-roam-capture-templates '(("d" "default" plain #'org-roam--capture-get-point "%?" :file-name "pocket/${item_id}-${slug}" :head "#+TITLE: ${title}
+#+roamtags: ${tags}
+
+URL: ${url}
+Id: ${item_id}
+
+${excerpt}
+" :unnarrowed t)))
             (org-roam-capture--info `((title . ,resolved_title)
                                       (slug  . ,resolved_title)
                                       (url . ,resolved_url)
