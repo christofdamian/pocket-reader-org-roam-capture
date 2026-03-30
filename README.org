@@ -1,3 +1,9 @@
+#+BEGIN_QUOTE
+This repository has moved to Codeberg: https://codeberg.org/cdamian/pocket-reader-org-roam-capture
+
+This GitHub repository is archived and no longer maintained here.
+#+END_QUOTE
+
 * pocket-reader-org-roam-capture
 
 This is a simple function that converts pocket-reader items to org-roam files.
